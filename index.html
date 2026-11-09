@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>給妳的生日驚喜 ♡</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="floating-hearts" id="floating-hearts"></div>
+
+    <!-- 第一頁：生日解鎖 -->
+
+    <section id="lock-screen">
+
+        <div class="birthday-container">
+
+            <div class="heart">♡</div>
+
+            <h1>Happy Birthday</h1>
+
+            <h2>給我最愛的妳</h2>
+
+            <p>今天有一份妳的小驚喜。</p>
+
+            <p>輸入妳的生日，看看我準備了什麼吧！</p>
+
+            <input
+                type="text"
+                id="birthday"
+                placeholder="YYYY/MM/DD"
+            >
+
+            <button onclick="checkBirthday()">
+                開啟生日驚喜 ♡
+            </button>
+
+            <p id="message"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- 第二頁：生日主頁 -->
+
+    <main id="birthday-content" style="display: none;">
+
+        <!-- 生日歡迎區 -->
+
+        <section class="hero">
+
+            <p>TO MY FAVORITE PERSON</p>
+
+            <h1>Happy Birthday ♡</h1>
+
+            <h2>生日快樂呀超級可愛的女孩</h2>
+
+            <p>
+                很開心我的生活有妳，雖然異地戀
+                但希望未來的每一年，我都能陪在妳身邊。
+            </p>
+<div class="birthday-cake">
+    <img src="images/birthday-cake-21-matching.png" alt="21歲生日蛋糕">
+</div>
+        </section>
+
+<!-- 背景音樂區 -->
+
+<section class="music-section">
+
+    <h2>🎵 我們的專屬旋律</h2>
+
+    <p>背景音樂必須來一首吧，就用我成名的歌，畢竟這首是妳也是對我印象最深刻的歌曲吧，當時的勇敢唱歌，放這告訴我自己勇敢愛妳!</p>
+
+   <audio id="birthday-music" preload="auto">
+    <source src="music/birthday-song.mp3" type="audio/mpeg">
+</audio>
+
+</section>
+       
+
+
+        <!-- 照片回憶區 -->
+
+        <section class="gallery-section">
+
+            <div class="photo-gallery">
+
+                <div class="photo-card">
+                    <img src="images/photo1.jpg" alt="我們的回憶一" onclick="openPhoto(this)">
+                    <p>這張照片有漂亮妳跟花，尤其笑容超可愛的</p>
+                </div>
+
+                <div class="photo-card">
+                    <img src="images/photo2.jpg" alt="我們的回憶二" onclick="openPhoto(this)">
+                    <p>今日酷酷風格，我穿上襯衫p>
+                </div>
+
+                <div class="photo-card">
+                    <img src="images/photo3.jpg" alt="我們的回憶三" onclick="openPhoto(this)">
+                    <p>高中路跑後陪我一起拍照!!</p>
+                </div>
+
+                <div class="photo-card">
+                    <img src="images/photo4.jpg" alt="我們的回憶四" onclick="openPhoto(this)">
+                    <p>情侶頭髮，超級好看</p>
+                </div>
+
+                <div class="photo-card">
+                    <img src="images/photo5.jpg" alt="我們的回憶五" onclick="openPhoto(this)">
+                    <p>難得跟我一起拍可可愛愛的</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- 情書區 -->
+
+        <section class="letter-section">
+
+            <h2>♡ 最最最可愛的小豬 ♡</h2>
+
+            <div class="letter-card">
+
+                <p>小可愛：</p>
+
+                <p>
+                    首先!!!!!生日快樂啊
+                </p>
+
+                <p>
+                    很開心能夠遇見妳，
+                    也很珍惜我們一起經歷的每一件事情。
+                </p>
+
+                <p>
+                    未來還有很多地方想和妳一起去玩，
+                    很多事情想和妳一起完成。
+                    寒假時我們一定要一起出去玩！
+                </p>
+
+                <p>
+                    我希望妳每天都能開開心心，
+                    也希望我能一直成為讓妳開心快樂的人。
+                </p>
+
+                <p>
+                    謝謝妳出現在我的生活中，現在我也算是學會寫網頁程式厲害吧，這次的很不一樣歐，希望妳會喜歡生日禮物感受到理工男的浪漫了嗎
+                </p>
+    
+
+                <p class="signature">
+                    永遠愛妳的我 ♡
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 最後的生日祝福 -->
+
+        <footer>
+
+            <h2>Happy Birthday ♡</h2>
+
+            <p>未來的每一年，都想陪妳一起度過。</p>
+
+            <p>Made with Love ♡</p>
+
+        </footer>
+
+    </main>
+
+
+    <!-- 照片放大相簿 -->
+
+    <div id="photo-modal" onclick="closePhoto()">
+
+        <span class="close-photo" onclick="closePhoto()">
+            &times;
+        </span>
+
+        <button
+            class="photo-prev"
+            onclick="event.stopPropagation(); changePhoto(-1)">
+            &#10094;
+        </button>
+
+        <img
+            id="modal-image"
+            src=""
+            alt="放大的回憶照片"
+            onclick="event.stopPropagation()"
+        >
+
+        <button
+            class="photo-next"
+            onclick="event.stopPropagation(); changePhoto(1)">
+            &#10095;
+        </button>
+
+        <p id="photo-counter"></p>
+
+    </div>
+
+
+    <!-- JavaScript -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+
+        
